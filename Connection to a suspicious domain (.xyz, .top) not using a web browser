@@ -1,0 +1,13 @@
+DeviceNetworkEvents
+| where RemoteUrl has ".top" or RemoteUrl has ".xyz"
+| where RemoteUrl !has ".local" 
+| where isnotempty(InitiatingProcessFileName)
+//We dont want to search for a web browser
+| where InitiatingProcessFileName != "msedge.exe"
+| where InitiatingProcessFileName != "chrome.exe"
+| where InitiatingProcessFileName != "opera.exe"
+| where InitiatingProcessFileName != "firefox.exe"
+| where InitiatingProcessFileName != "brave.exe"
+| where InitiatingProcessFileName != "vivaldi.exe"
+| where InitiatingProcessFileName != "iexplore.exe"
+| where InitiatingProcessFileName != "VirtualBoxVM.exe"
